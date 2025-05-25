@@ -1,6 +1,8 @@
 import React from "react";
 import { Menu, X, Search, Bell, Plus } from "lucide-react";
-import { generalLinks, toolLinks } from "../data/navigationLinks";
+import { generalLinks, setting, toolLinks } from "../data/navigationLinks";
+import SidebarCategory from "./sidebar/sidebarCategory";
+import SidebarItems from "./sidebar/sidebarItems";
 
 interface MobileHeaderProps {
   setIsMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,7 +14,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
   isMobileMenuOpen,
 }) => {
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden flex flex-1 flex-col">
       <div className="flex items-center justify-between p-4 bg-primary-ultralight">
         <div className="flex items-center">
           <button
@@ -60,43 +62,31 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
       </div>
 
       {isMobileMenuOpen && (
-        <div className="bg-white absolute z-10 w-full shadow-lg">
-          <div className="p-4">
-            <h3 className="text-xs uppercase text-gray-400 font-medium mb-2">
-              General
-            </h3>
-            <nav className="flex flex-col gap-2">
-              {generalLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href="#"
-                  className={`flex items-center gap-3 py-3 px-4 rounded-lg ${
-                    link.isActive
-                      ? "bg-blue-50 text-primary-dark"
-                      : "text-gray-600"
-                  }`}
-                >
-                  <link.icon size={20} />
-                  <span>{link.title}</span>
-                </a>
-              ))}
-            </nav>
+        <div className="bg-primary-ultralight flex-1 w-full flex justify-between flex-col items-start p-4 ">
+          <div className="flex-1">
+            <div className="mb-8">
+              <SidebarCategory>General</SidebarCategory>
+              <nav>
+                {generalLinks.map((link) => (
+                  <SidebarItems link={link} key={link.title} />
+                ))}
+              </nav>
+            </div>
 
-            <h3 className="text-xs uppercase text-gray-400 font-medium mt-4 mb-2">
-              Tools
-            </h3>
-            <nav className="flex flex-col gap-2">
-              {toolLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href="#"
-                  className="flex items-center gap-3 py-3 px-4 rounded-lg text-gray-600"
-                >
-                  <link.icon size={20} />
-                  <span>{link.title}</span>
-                </a>
-              ))}
-            </nav>
+            <div>
+              <SidebarCategory>Tools</SidebarCategory>
+              <nav>
+                {toolLinks.map((link) => (
+                  <a key={link.id} href="#" className="sidebar-link">
+                    <link.icon size={20} />
+                    <span>{link.title}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+          <div className="ml-12">
+            <SidebarItems link={setting} />
           </div>
         </div>
       )}

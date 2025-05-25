@@ -18,7 +18,7 @@ const CalendarDayColumn: React.FC<CalendarDayColumnProps> = ({
   return (
     <div
       className={`calendar-day ${
-        isToday ? "bg-primary-light/50 rounded-lg" : ""
+        isToday ? "bg-primary-light/50 pr-2 rounded-lg" : ""
       } `}
     >
       <p
@@ -53,7 +53,7 @@ const CalendarDayColumn: React.FC<CalendarDayColumnProps> = ({
                 invalid ? "text-primary-lowmedium" : ""
               } ${
                 isToday && appointment.time === "09:00"
-                  ? "bg-primary-dark text-primary-light py-1 px-3 -ml-1 rounded-xl"
+                  ? "bg-primary-dark text-primary-light py-1 px-1 rounded-xl"
                   : ""
               } ${isSp ? "sp-time text-white px-3 py-1 rounded-xl" : ""} ${
                 dayName === "Sat" ? "pr-10 -mr-8" : ""

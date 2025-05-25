@@ -39,7 +39,7 @@ const SimpleAppointmentCard: React.FC<AppointmentCardProps> = ({
     <div className={`rounded-3xl p-4 mb-2 bg-primary-light animate-on-hover`}>
       <div className="flex justify-between items-start">
         <div>
-          <h3 className="font-medium">{title}</h3>
+          <h3 className="font-medium break-words">{title}</h3>
           <p className="text-sm text-gray-500 mt-1">
             {time} {timeType}
           </p>

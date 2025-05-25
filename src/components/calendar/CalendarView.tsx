@@ -16,7 +16,7 @@ const CalendarView: React.FC = () => {
           <h2 className="text-md font-semibold">{calendarMonth}</h2>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mr-10">
           <button className="p-1 ">
             <ArrowBigLeft
               strokeWidth={3}

@@ -27,8 +27,8 @@ const HealthStatusCard: React.FC<HealthStatusCardProps> = ({
   };
 
   return (
-    <div className="rounded-3xl bg-primary-ultralight p-4 flex-1 flex-shrink-2 mr-8 min-w-36">
-      <div className="flex items-center gap-3 mb-2">
+    <div className="rounded-3xl bg-primary-ultralight p-4  flex-1 flex-shrink-2 mr-8 md:min-w-10 lg:min-w-30">
+      <div className="flex items-center justify-between gap-2 mb-2">
         <span className="text-xl">{getStatusIcon()}</span>
         <h3 className="font-medium">{name}</h3>
       </div>

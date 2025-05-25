@@ -1,6 +1,6 @@
 import { NavLink } from "../../data/navigationLinks";
 
-const SidebarCategory = ({ link }: { link: NavLink }) => {
+const SidebarItems = ({ link }: { link: NavLink }) => {
   return (
     <a
       key={link.id}
@@ -15,4 +15,4 @@ const SidebarCategory = ({ link }: { link: NavLink }) => {
   );
 };
 
-export default SidebarCategory;
+export default SidebarItems;

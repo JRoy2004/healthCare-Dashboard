@@ -10,8 +10,8 @@ const AnatomySection: React.FC = () => {
   console.log(nodes);
   return (
     <div className="bg-white  relative overflow-visible">
-      <div className="flex flex-col xs:flex-row gap-8 items-center justify-center">
-        <div className="relative flex-3 w-screen xs:w-[75%] h-[400px] flex items-center justify-center bg-primary-ultralight rounded-2xl pb-4 -mb-8 overflow-visible">
+      <div className="flex flex-col xs:flex-row gap-2 lg:gap-6 items-center justify-center">
+        <div className="relative flex-3 w-screen  xs:w-[75%] h-[360px]  flex items-center justify-center bg-primary-ultralight rounded-2xl pb-4 -mb-8 overflow-visible">
           <Canvas camera={{ position: [0, 0, 5] }} className="w-full h-screen ">
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} />
@@ -66,7 +66,7 @@ const AnatomySection: React.FC = () => {
           </Canvas>
         </div>
 
-        <div className="flex flex-1 w-[25%] flex-col gap-4 mt-6 xs:-mt-10  items-center">
+        <div className="flex flex-1 flex-row flex-wrap w-[220px] xs:w-[25%] xs:flex-col gap-2 mt-6 mr-5 items-center">
           <HealthStatusCard
             id="lungs"
             name="Lungs"
