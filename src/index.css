@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color-dark: "rgba(47,50,156,255)";
+  --primary-color: #10b3d6;
+  --secondary-color: #6979f8;
+  --background-color: #f5f7fb;
+  --sidebar-color: #ffffff;
+  --card-color: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --status-green: #00c48c;
+  --status-red: #ff647c;
+  --status-yellow: #ffcf5c;
+  --border-radius: 16px;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center font-semibold gap-3 py-3  text-gray-500 hover:text-primary-medium hover:bg-blue-50 rounded-lg transition-all duration-200;
+  }
+
+  .sidebar-link.active {
+    @apply text-primary-dark   font-semibold;
+  }
+
+  .status-indicator {
+    @apply h-2 rounded-full;
+  }
+
+  .status-good {
+    @apply bg-green-400;
+  }
+
+  .status-warning {
+    @apply bg-yellow-400;
+  }
+
+  .status-bad {
+    @apply bg-red-500;
+  }
+
+  .appointment-card {
+    @apply bg-indigo-50 rounded-xl p-4 flex flex-col;
+  }
+
+  .appointment-time {
+    @apply bg-indigo-600 text-white text-xs rounded-full px-3 py-1 w-fit;
+  }
+
+  .calendar-day {
+    @apply text-center px-2 py-1;
+  }
+
+  .calendar-time {
+    @apply text-xs text-gray-600 rounded-md p-1 my-1 mx-auto w-fit;
+  }
+  .align-end {
+    align-self: flex-end;
+  }
+  .sp-time {
+    @apply bg-primary-lowmedium text-white;
+  }
+}
+
+.activity-bar {
+  width: 8px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+}
+
+.animate-on-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.animate-on-hover:hover {
+  transform: translateY(-2px);
+}
+
+.corner-box::before,
+.corner-box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Top-left & bottom-right */
+.corner-box::before {
+  background: linear-gradient(
+        to right,
+        var(--primary-color) 8px,
+        transparent 2px
+      )
+      top left,
+    linear-gradient(to bottom, var(--primary-color) 8px, transparent 2px) top
+      left,
+    linear-gradient(to left, var(--primary-color) 8px, transparent 2px) bottom
+      right,
+    linear-gradient(to top, var(--primary-color) 8px, transparent 2px) bottom
+      right;
+  background-repeat: no-repeat;
+  background-size: 10px 2px, 2px 10px, 10px 2px, 2px 10px;
+}
+
+/* Top-right & bottom-left */
+.corner-box::after {
+  background: linear-gradient(
+        to left,
+        var(--primary-color) 8px,
+        transparent 2px
+      )
+      top right,
+    linear-gradient(to bottom, var(--primary-color) 8px, transparent 2px) top
+      right,
+    linear-gradient(to right, var(--primary-color) 8px, transparent 2px) bottom
+      left,
+    linear-gradient(to top, var(--primary-color) 8px, transparent 2px) bottom
+      left;
+  background-repeat: no-repeat;
+  background-size: 10px 2px, 2px 10px, 10px 2px, 2px 10px;
+}
